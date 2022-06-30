@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-//solveCount = 1;
+//solveCount = 2;
 
 const createCalculator = () => {
   const calc = {

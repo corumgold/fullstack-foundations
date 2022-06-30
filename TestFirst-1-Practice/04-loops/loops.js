@@ -58,3 +58,25 @@ function gridGenerator(num) {
   }
   return grid;
 }
+
+function paramify(obj) {
+  let arr = [];
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      arr.push(`${key}=${obj[key]}`);
+    }
+  }
+  return arr.sort().join('&');
+}
+
+function paramifyObjectKeys(obj) {
+  let arrayedObj = [];
+  let keys = Object.keys(obj);
+  let values = Object.values(obj);
+  for (let i = 0; i < keys.length; i++) {
+    let key = keys[i];
+    let value = values[i];
+    arrayedObj.push(`${key}=${value}`);
+  }
+  return arrayedObj.sort().join('&');
+}

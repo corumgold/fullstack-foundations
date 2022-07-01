@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-//solveCount = 1;
+//solveCount = 2;
 
 function repeat(str, amt) {
   let string = '';

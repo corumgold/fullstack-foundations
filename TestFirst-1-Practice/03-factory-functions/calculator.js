@@ -19,3 +19,13 @@ function createCalculator() {
   };
   return calculator;
 }
+
+function addSquareMethod(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let calc = arr[i];
+    calc.square = function () {
+      return this.total * this.total;
+    };
+  }
+  return arr;
+}

@@ -1,14 +1,15 @@
 /* eslint-disable no-unused-vars */
-// solveCount = 2;
+// solveCount = 3;
 
-let loud = 'loud';
-let name = 'Cody';
-let dog = {
+const name = 'Cody';
+const loud = 'loud';
+
+const dog = {
   name,
   bark() {
     return 'ruff ruff!';
   },
-  [`${loud}Bark`]: function () {
+  [`${loud}Bark`]() {
     return this.bark().toUpperCase();
   },
 };

@@ -29,3 +29,24 @@ function addSquareMethod(arr) {
   }
   return arr;
 }
+
+const basicCalc = {
+  value() {
+    return this.total;
+  },
+  add(num) {
+    return (this.total += num);
+  },
+  subtract(num) {
+    return (this.total -= num);
+  },
+  clear() {
+    this.total = -10;
+  },
+};
+
+const createHumanCalculator = function () {
+  let calculator = Object.create(basicCalc);
+  calculator.total = -10;
+  return calculator;
+};

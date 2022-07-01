@@ -80,3 +80,22 @@ function paramifyObjectKeys(obj) {
   }
   return arrayedObj.sort().join('&');
 }
+
+function sort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      //if the current arr[j] is smaller than the next...
+      if (arr[j] < arr[j + 1]) {
+        //move on
+        continue;
+        //otherwise switch the current arr[j] with arr[j+1]
+        //(if the next element isn't undefined)
+      } else if (arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}

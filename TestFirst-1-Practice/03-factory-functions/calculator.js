@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-//solveCount = 2;
+//solveCount = 3;
 
 function createCalculator() {
   let calculator = {
@@ -24,13 +24,13 @@ function addSquareMethod(arr) {
   for (let i = 0; i < arr.length; i++) {
     let calc = arr[i];
     calc.square = function () {
-      return this.total * this.total;
+      return this.total ** 2;
     };
   }
   return arr;
 }
 
-const basicCalc = {
+let calcProto = {
   value() {
     return this.total;
   },
@@ -45,8 +45,8 @@ const basicCalc = {
   },
 };
 
-const createHumanCalculator = function () {
-  let calculator = Object.create(basicCalc);
+function createHumanCalculator() {
+  let calculator = Object.create(calcProto);
   calculator.total = -10;
   return calculator;
-};
+}

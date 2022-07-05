@@ -32,6 +32,7 @@ function join(arr, delimiter) {
 }
 
 function gridGenerator(num) {
+  debugger;
   let grid = '';
   for (let i = 0; i < num; i++) {
     let row = '';
@@ -58,44 +59,45 @@ function gridGenerator(num) {
   }
   return grid;
 }
+gridGenerator(3);
 
-function paramify(obj) {
-  let arr = [];
-  for (let key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      arr.push(`${key}=${obj[key]}`);
-    }
-  }
-  return arr.sort().join('&');
-}
+// function paramify(obj) {
+//   let arr = [];
+//   for (let key in obj) {
+//     if (obj.hasOwnProperty(key)) {
+//       arr.push(`${key}=${obj[key]}`);
+//     }
+//   }
+//   return arr.sort().join('&');
+// }
 
-function paramifyObjectKeys(obj) {
-  let arrayedObj = [];
-  let keys = Object.keys(obj);
-  let values = Object.values(obj);
-  for (let i = 0; i < keys.length; i++) {
-    let key = keys[i];
-    let value = values[i];
-    arrayedObj.push(`${key}=${value}`);
-  }
-  return arrayedObj.sort().join('&');
-}
+// function paramifyObjectKeys(obj) {
+//   let arrayedObj = [];
+//   let keys = Object.keys(obj);
+//   let values = Object.values(obj);
+//   for (let i = 0; i < keys.length; i++) {
+//     let key = keys[i];
+//     let value = values[i];
+//     arrayedObj.push(`${key}=${value}`);
+//   }
+//   return arrayedObj.sort().join('&');
+// }
 
-function sort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      //if the current arr[j] is smaller than the next...
-      if (arr[j] < arr[j + 1]) {
-        //move on
-        continue;
-        //otherwise switch the current arr[j] with arr[j+1]
-        //(if the next element isn't undefined)
-      } else if (arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
-    }
-  }
-  return arr;
-}
+// function sort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       //if the current arr[j] is smaller than the next...
+//       if (arr[j] < arr[j + 1]) {
+//         //move on
+//         continue;
+//         //otherwise switch the current arr[j] with arr[j+1]
+//         //(if the next element isn't undefined)
+//       } else if (arr[j + 1]) {
+//         let temp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+// }

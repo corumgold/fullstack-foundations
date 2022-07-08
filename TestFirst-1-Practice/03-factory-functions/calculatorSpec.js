@@ -184,13 +184,6 @@ describe('createHumanCalculator', () => {
     expect(humanCalculator.hasOwnProperty('clear')).toBe(false);
   });
 
-  it('all the methods are not on the "instance" (humanCalculator), rather, they are accessed via the prototype chain', () => {
-    expect(humanCalculator.hasOwnProperty('add')).toBe(false);
-    expect(humanCalculator.hasOwnProperty('subtract')).toBe(false);
-    expect(humanCalculator.hasOwnProperty('value')).toBe(false);
-    expect(humanCalculator.hasOwnProperty('clear')).toBe(false);
-  });
-
   it('initially has a value of -10', () => {
     expect(humanCalculator.value()).toEqual(-10);
   });

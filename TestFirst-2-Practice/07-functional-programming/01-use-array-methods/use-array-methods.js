@@ -23,3 +23,9 @@ function swapCase(str) {
     })
     .join(' ');
 }
+
+//USING FILTER
+
+function extensionSearch(ext, arr) {
+  return arr.filter((word) => word.includes(ext));
+}

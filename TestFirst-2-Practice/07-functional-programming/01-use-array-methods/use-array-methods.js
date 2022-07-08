@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-//solveCount = 1;
+//solveCount = 2;
 
 //USING MAP
 
@@ -70,4 +70,31 @@ function filterReduce(arr, func) {
     if (func(curr)) acc.push(curr);
     return acc;
   }, []);
+}
+
+//METHOD CHAINING
+
+function inYourBudget(budget, items) {
+  return items.filter((item) => item.price <= budget).map((item) => item.item);
+}
+
+function separateAndReturnNames(list, firstOrLast, maxLength) {
+  return list
+    .map((nameObj) => {
+      nameObj.firstName = nameObj.name.split(' ')[0];
+      nameObj.lastName = nameObj.name.split(' ')[1];
+      return nameObj;
+    })
+    .filter((nameObj) => nameObj[firstOrLast].length <= maxLength)
+    .map((nameObj) => nameObj[firstOrLast]);
+}
+
+function priorityTodoDuration(list) {
+  return list
+    .filter((taskObj) => {
+      return taskObj.priority === 'high';
+    })
+    .reduce((acc, curr) => {
+      return acc + curr.duration;
+    }, 0);
 }

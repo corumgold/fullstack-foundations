@@ -1,27 +1,27 @@
 /* eslint-disable no-unused-vars, no-prototype-builtins */
-//MM: Good Job!!!
-let bookProto = {
+//solveCount = 2;
+
+const bookProto = {
   getInfo() {
     return `${this.title} by ${this.author}`;
   },
   getPrice() {
     return this.price;
   },
-  addRating(stars) {
-    this.rating.push(`${stars}`);
+  addRating(starStr) {
+    this.rating.push(starStr);
   },
   getRating() {
-    let totalReviews = this.rating.length;
-    let totalStars = 0;
-    for (let i = 0; i < totalReviews; i++) {
-      totalStars += this.rating[i].length;
-    }
-    return totalStars / totalReviews;
+    return Math.floor(
+      this.rating
+        .map((starRating) => starRating.length)
+        .reduce((acc, curr) => acc + curr, 0) / this.rating.length
+    );
   },
 };
-//Rating is never received in the function and is never used.
-function createBook(id, title, author, price, rating) {
-  let book = Object.create(bookProto);
+
+function createBook(id, title, author, price) {
+  const book = Object.create(bookProto);
   book.id = id;
   book.title = title;
   book.author = author;

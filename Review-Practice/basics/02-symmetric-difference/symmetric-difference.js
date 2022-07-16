@@ -10,4 +10,12 @@
 
 /* eslint-disable no-unused-vars */
 
-function difference(arrayA, arrayB) {}
+//solveCount == 2;
+
+function difference(arrayA, arrayB) {
+    return arrayA.filter(char => !arrayB.includes(char))
+}
+
+function symmetricDiff(arrA, arrB) {
+    return difference(arrA, arrB).concat(difference(arrB, arrA));
+}

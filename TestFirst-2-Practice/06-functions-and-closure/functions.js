@@ -1,29 +1,27 @@
 /* eslint-disable no-unused-vars */
 
-//solveCount = 2;
+//solveCount = 3;
 
 function concatString() {
-  let args = Array.from(arguments);
-  return args.join('');
+  return Array.from(arguments).join('');
 }
 
 function yourFunctionRunner() {
-  let funcs = [...arguments];
-  return funcs.map((func) => func()).join('');
+  return [...arguments].map((func) => func()).join('');
 }
 
 function makeAdder(num) {
-  return function (num2) {
-    return num + num2;
+  return function (numAdded) {
+    return num + numAdded;
   };
 }
 
 function once(func) {
   let ran = false;
-  return function () {
+  return () => {
     if (!ran) {
       ran = true;
       return func();
-    } else return 'the function has already been called...';
+    } else return 'The function has already been called...';
   };
 }

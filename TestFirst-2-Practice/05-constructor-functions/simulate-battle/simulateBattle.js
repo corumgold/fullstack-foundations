@@ -1,41 +1,46 @@
 /* eslint-disable no-unused-vars, no-throw-literal*/
-//solveCount = 1;
+//solveCount = 3;
 
-function Pokemon(name, health, attackBonus) {
-  this.name = name;
-  this.health = health;
-  this.attackBonus = attackBonus;
+class Pokemon {
+  constructor(name, health, attackBonus) {
+    this.name = name;
+    this.health = health;
+    this.attackBonus = attackBonus;
+  }
+
+  biteAttack() {
+    return this.attackBonus + 2;
+  }
+
+  isDefeated() {
+    return this.health <= 0;
+  }
 }
 
-Pokemon.prototype.isDefeated = function () {
-  if (this.health > 0) return false;
-  return true;
-};
-
-Pokemon.prototype.biteAttack = function () {
-  return this.attackBonus + 2;
-};
-
-//-------------------------------------------------
-
-function simulateBattle(poke1, poke2, first) {
-  let firstAttack = poke1;
-  let secondAttack = poke2;
-
-  if (poke2.name === first) {
-    firstAttack = poke2;
-    secondAttack = poke1;
+function simulateBattle(poke1, poke2, upFirst) {
+  const poke1Health = poke1.health;
+  const poke2Health = poke2.health;
+  let first = poke1;
+  let second = poke2;
+  if (poke2.name === upFirst) {
+    first = poke2;
+    second = poke1;
   }
 
-  function winMessage(winner) {
-    winMessage.battleOver = true;
-    return `${winner} Wins!`;
+  let winMessage;
+
+  function attackFunc(attacker, defender) {
+    defender.health -= attacker.biteAttack();
+    if (defender.health <= 0) {
+      winMessage = `${attacker.name} Wins!`;
+    }
   }
 
-  while (!winMessage.battleOver) {
-    secondAttack.health -= firstAttack.biteAttack();
-    if (secondAttack.health <= 0) return winMessage(firstAttack.name);
-    firstAttack.health -= secondAttack.biteAttack();
-    if (firstAttack.health <= 0) return winMessage(secondAttack.name);
+  while (first.health > 0 && second.health > 0) {
+    attackFunc(first, second);
+    attackFunc(second, first);
   }
+  poke1.health = poke1Health;
+  poke2.health = poke2Health;
+  return winMessage;
 }

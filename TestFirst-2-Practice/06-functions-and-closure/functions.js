@@ -22,6 +22,35 @@ function once(func) {
     if (!ran) {
       ran = true;
       return func();
-    } else return 'The function has already been called...';
+    } else return 'the function has already been called...';
+  };
+}
+
+function createObjectWithClosures() {
+  let total = 0;
+  return {
+    oneIncrementer() {
+      total++;
+    },
+    tensIncrementer() {
+      total += 10;
+    },
+    getValue() {
+      return total;
+    },
+    setValue(num) {
+      total = num;
+    },
+  };
+}
+
+function dontSpillTheBeans(secret) {
+  return {
+    getSecret() {
+      return secret;
+    },
+    setSecret(newSecret) {
+      secret = newSecret;
+    }
   };
 }
